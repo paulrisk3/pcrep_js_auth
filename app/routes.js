@@ -1,12 +1,14 @@
-module.exports = function(app, passport) {
-
 const MongoClient = require('mongodb').MongoClient
 
-MongoClient.connect('mongodb://phrisk3:trash2019@ds243059.mlab.com:43059/pcrep_js', (err, client) => 
+var db
+
+MongoClient.connect('mongodb://*****:*****@ds243059.mlab.com:43059/pcrep_js', (err, client) => 
 {
     if (err) return console.log(err)
-    var db = client.db('pcrep_js')  
+    db = client.db('pcrep_js')  
 })
+
+module.exports = function(app, passport) {
 
 
 // normal routes ===============================================================
@@ -18,7 +20,7 @@ MongoClient.connect('mongodb://phrisk3:trash2019@ds243059.mlab.com:43059/pcrep_j
 
     app.get('/products', (req, res) =>
     {
-        db.collection('pcrep_js').find().toArray((err, result) =>
+        db.collection('products').find().toArray((err, result) =>
         {
             if (err) return console.log(err)
             res.render('products.ejs', {products: result})
