@@ -1,0 +1,19 @@
+<% include templates/header %>
+
+<h2>Welcome to our online store!</h2>
+
+<h3>Products</h3>
+
+<ul class="products">
+    <% for(var i=0; i<products.length; i++) 
+    {%>
+        <li class="products">
+            <span><%= products[i].name %></span>
+            <p>CPU: <%= products[i].cpu %></p>
+            <p>RAM: <%= products[i].ram %></p>
+            <p>Price: <%= products[i].price %></p>
+        </li>
+    <% } %>
+</ul>
+
+<% include templates/footer %>
