@@ -2,10 +2,10 @@ const MongoClient = require('mongodb').MongoClient
 
 var db
 
-MongoClient.connect('mongodb://*****:*****@ds243059.mlab.com:43059/pcrep_js', (err, client) => 
+MongoClient.connect('mongodb://localhost:27017/pcrepairutah', (err, client) => 
 {
     if (err) return console.log(err)
-    db = client.db('pcrep_js')  
+    db = client.db('pcrepairutah')  
 })
 
 module.exports = function(app, passport) {
